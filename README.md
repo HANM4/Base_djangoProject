@@ -1,9 +1,9 @@
-#Start
-##First start project(with base DB) with Docker
+# Start
+## First start project(with base DB) with Docker
 1. `docker-compose build`
 2. `docker-compose up -d`
 
-##First start project(sans base DB) with Docker
+## First start project(sans base DB) with Docker
 1. Удаляем папку data/postgres
 2. `docker-compose build`
 3. `docker-compose up -d`
