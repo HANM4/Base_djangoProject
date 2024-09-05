@@ -16,6 +16,9 @@ services:
         volumes:
             - "./data/static:/app/static"
             - "./data/media:/media"
+            - "./djangoTreeMenu/djangoTreeMenu:/app/djangoTreeMenu" # для прода убрать
+            - "./djangoTreeMenu/treeMenu:/app/treeMenu" # для прода убрать
+            - "./djangoTreeMenu/templates:/app/templates" # для прода убрать
 
 
     postgres:
