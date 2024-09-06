@@ -16,7 +16,7 @@ services:
         volumes:
             - "./data/static:/app/static"
             - "./data/media:/media"
-            - "./baseProject:app/djangoTreeMenu" # для прода убрать
+            - "./baseProject:/app" # для прода убрать
 
 
     postgres:
