@@ -7,7 +7,7 @@ services:
             - "80"
         env_file:
             - "./production.env"
-        command: gunicorn -c "./gunicorn_config.py" baseProject.wsgi
+#        command: entrypoint.sh
 #        command: python manage.py runserver 0.0.0.0:80
         restart: always
         depends_on:
