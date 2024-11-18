@@ -17,3 +17,5 @@ data/nginx/logs
 
 baseProject/static
 /media/
+
+node_modules
