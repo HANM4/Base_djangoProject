@@ -70,7 +70,7 @@ def rename_base_project(list_path_dirs_and_files: list[list[str]],
     for path_dir in list_path_dirs:
         try:
             if os.path.exists(path_dir):
-                os.rename(path_dir, path_dir[:path_dir.rfind('\\')]+new_name)
+                os.rename(path_dir, path_dir[:path_dir.rfind('\\')+1]+new_name)
                 print(f"Дериктория {path_dir} обработан.")
             else:
                 print(f"Дериктория {path_dir} не найден.")
