@@ -77,5 +77,6 @@ def rename_base_project(list_path_dirs_and_files: list[list[str]],
         except Exception as e:
             print(f"Произошла ошибка: {e}")
 
+
 if __name__ == "__main__":
-    print(construct_path())
+    rename_base_project(construct_path(), "new_project")
