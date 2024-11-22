@@ -13,13 +13,13 @@ PATH_FILES_RENAME = (
     "baseProjectRename\\docker-compose.yml",
     "baseProjectRename\\gunicorn_config.py",
     "baseProjectRename\\manage.py",
-    "baseProjectRename\\baseProject\\asgi.py",
+    "baseProjectRename\\baseProjectRename\\asgi.py",
     "baseProjectRename\\baseProjectRename\\settings.py",
     "baseProjectRename\\baseProjectRename\\urls.py",
     "baseProjectRename\\baseProjectRename\\wsgi.py",
     "gulpfile.js",
     "tailwind.config,js",
-    "baseProject\\templates\\index.html"
+    "baseProjectRename\\templates\\index.html"
 )
 
 

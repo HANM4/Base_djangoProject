@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
     django:
-        build: ./baseProject/
+        build: baseProjectRename/
         expose:
             - "80"
         env_file:
             - "./production.env"
-        command: gunicorn -c "./gunicorn_config.py" baseProject.wsgi
+        command: gunicorn -c "./gunicorn_config.py" baseProjectRename.wsgi
 #        command: python manage.py runserver 0.0.0.0:80
         restart: always
         depends_on:
@@ -15,7 +15,7 @@ services:
         volumes:
             - "./data/static:/app/static"
             - "./data/media:/media"
-            - "./baseProject:/app" # для прода убрать
+            - "./baseProjectRename:/app" # для прода убрать
 
 
     postgres:
