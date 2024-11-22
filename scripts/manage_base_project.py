@@ -1,6 +1,5 @@
 import os
 import re
-import sys
 
 PATH_DIRS_RENAME = (
     "baseProjectRename\\baseProjectRename\\static\\baseProjectRename",
@@ -19,7 +18,8 @@ PATH_FILES_RENAME = (
     "baseProjectRename\\baseProjectRename\\wsgi.py",
     "gulpfile.js",
     "tailwind.config,js",
-    "baseProjectRename\\templates\\index.html"
+    "baseProjectRename\\templates\\index.html",
+    "docker-compose.yml"
 )
 
 
