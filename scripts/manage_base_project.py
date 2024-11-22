@@ -78,5 +78,9 @@ def rename_base_project(list_path_dirs_and_files: list[list[str]],
             print(f"Произошла ошибка: {e}")
 
 
-if __name__ == "__main__":
+def start_new_project() -> None:
     rename_base_project(construct_path(), "new_project")
+
+
+if __name__ == "__main__":
+    start_new_project()

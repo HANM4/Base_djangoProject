@@ -11,3 +11,7 @@
 4. `docker exec -it CONTAINER_ID_djnago /bin/bash`
 5. `./docker_first_up.sh` запуск скрипта для первого запуска проекта (создаём статик файлы, запускаем миграцию, создаем супер пользователя)
 6. `exit` или ctrl +z выход из терминала контейнера
+
+
+## Скрипты для автоматизации рутинных процессов при запуски нового проекта
+`python scripts/manage_base_project.py start_new_project`
