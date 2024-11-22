@@ -27,7 +27,10 @@ def construct_path(path_dirs: tuple[str] = PATH_DIRS_RENAME,
                    path_files: tuple[str] = PATH_FILES_RENAME) -> list[list[str]]:
     full_paths_dirs = []
     full_paths_files = []
-    this_dir = os.path.dirname(os.getcwd())
+    this_dir = os.path.realpath(__file__)
+    this_dir = os.path.dirname(this_dir)
+    this_dir = this_dir[:this_dir.rfind('\\')+1]
+
     for path_dir in path_dirs:
         path = os.path.join(this_dir, path_dir)
         full_paths_dirs.append(path)
