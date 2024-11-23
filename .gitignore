@@ -17,5 +17,3 @@ data/nginx/logs
 
 baseProjectRename/static
 /media/
-
-node_modules
