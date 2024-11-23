@@ -1,5 +1,5 @@
 """
-URL configuration for baseProject project.
+URL configuration for baseProjectRename project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
