@@ -50,15 +50,49 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sites",
+    'treebeard',
+    'cms',
+    'menus',
+    'sekizai',
+    "djangocms_versioning",
+    'djangocms_text_ckeditor',
+    "djangocms_alias",
+    'filer',
+    'easy_thumbnails',
+    'djangocms_frontend',
+    "djangocms_frontend.contrib.accordion",
+    "djangocms_frontend.contrib.alert",
+    "djangocms_frontend.contrib.badge",
+    "djangocms_frontend.contrib.card",
+    "djangocms_frontend.contrib.carousel",
+    "djangocms_frontend.contrib.collapse",
+    "djangocms_frontend.contrib.content",
+    "djangocms_frontend.contrib.grid",
+    "djangocms_frontend.contrib.image",
+    "djangocms_frontend.contrib.jumbotron",
+    "djangocms_frontend.contrib.link",
+    "djangocms_frontend.contrib.listgroup",
+    "djangocms_frontend.contrib.media",
+    "djangocms_frontend.contrib.tabs",
+    "djangocms_frontend.contrib.utilities",
+    "djangocms_file",
+    "djangocms_picture",
+    "djangocms_video",
+    "djangocms_googlemap",
+    "djangocms_snippet",
+    "djangocms_style",
 ]
 
 MIDDLEWARE = [
+    'cms.middleware.utils.ApphookReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,6 +100,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
+
+    "cms.middleware.user.CurrentUserMiddleware",
+    "cms.middleware.page.CurrentPageMiddleware",
+    "cms.middleware.toolbar.ToolbarMiddleware",
+    "cms.middleware.language.LanguageCookieMiddleware",
 ]
 
 ROOT_URLCONF = 'baseProjectRename.urls'
@@ -81,6 +121,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.i18n",
+                "sekizai.context_processors.sekizai",
+                'cms.context_processors.cms_settings',
             ],
         },
     },
@@ -137,10 +180,88 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# DjangoCMS settings
+SITE_ID = 1
+
+LANGUAGES = [
+    ("en", "English"),
+    ("ru", "Русский"),
+]
+LANGUAGE_CODE = "en"
+
+CMS_CONFIRM_VERSION4 = True
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
+
+CMS_TEMPLATES = [
+    ('home.html', 'Home page template'),
+]
+
+THUMBNAIL_HIGH_RESOLUTION = True
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters'
+)
+
+# Enable inline editing with djangocms-text-ckeditor
+# https://github.com/django-cms/djangocms-text-ckeditor#inline-editing-feature
+
+TEXT_INLINE_EDITING = True
+
+# configs djangocms-text-ckeditor
+CKEDITOR_SETTINGS = {
+    'fontSize_sizes': (
+        '0.5rem;'
+        '0.6rem;'
+        '0.7rem;'
+        '0.8rem;'
+        '20px;'
+        '0.85rem;'
+        '0.9rem;'
+        '0.95rem;'
+        '1rem;'
+        '1.05rem;'
+        '1.1rem;'
+        '1.15rem;'
+        '1.2rem;'
+        '1.35rem;'
+        '1.4rem;'
+        '1.5rem;'
+        '1.65rem;'
+        '2rem;'
+        '2.2rem;'
+        '2.5rem;'
+        '3rem;'
+        '4rem;'
+    ),
+    'toolbar': 'CUSTOM',
+    'toolbar_CUSTOM': [
+        ['Undo', 'Redo'],
+        ['cmsplugins', '-', 'ShowBlocks', 'Iframe'],
+        ['Format', 'Styles', 'FontSize'],
+        ['TextColor', 'BGColor', '-', 'PasteText', 'PasteFromWord', 'RemoveFormat', 'Scayt'],
+        ['Maximize', ''],
+        '/',
+        ['Bold', 'Italic', 'Underline', '-', 'Subscript', 'Superscript', '-', ],
+        ['Blockquote', ],
+        ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
+        ['Unlink', 'Anchor'],
+        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Table'],
+        ['Source']
+    ],
+}
+
+# djangoCMS-versioning settings
+# - DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS
+# this setting is allow to delete pages with versions
+# default value DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS = False
+DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS = True
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
-
-LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
